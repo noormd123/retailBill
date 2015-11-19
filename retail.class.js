@@ -13,16 +13,9 @@
 		this.netAmt = 0;
 	},
 	
-	/**
-	 * Calculate Amount.
-	 *
-	 * Initialize all the global variables
-	*/
 	RetailBill.prototype = {
 		/**
-		 * Calculate Amount.
-		 *
-		 * @chainable
+		 * Calculate Amount Method
 		*/
 		calculateAmt: function() {
 			this.discountAmt = parseFloat(this.subTotal) * parseFloat(this.discountPercent) / 100;
@@ -30,9 +23,7 @@
 			this.displayAmt();
 		},
 		/**
-		 * Display Amount.
-		 *
-		 * @chainable
+		 * Display Amount Method
 		*/
 		displayAmt: function() {
 			var $this = this;
