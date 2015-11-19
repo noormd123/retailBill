@@ -1,0 +1,94 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	color: #333;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;    
+	margin: 3% 15%;
+}
+h1 {
+	font-size: 2em;
+}
+h2 {
+	font-size: 1.5em;
+	padding: 1.5% 0;
+}
+input[type='text'], select {
+	padding: 5px;
+	width: 140px;
+}
+table {
+	text-align: left;
+}
+table thead th, table tbody td {
+	padding: 8px;
+}
+table thead th {
+	border-bottom: 1px solid #ddd;
+}
+table tfoot td {
+	border-top: 1px solid #ddd;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 8px;
+	text-align: right;
+}
+button {
+	padding: 5px;
+}
+input.price {
+	text-align: right;
+}
+.align-left {
+	text-align: left;
+}
+.align-right {
+	text-align: right;
+}
+.wrapper {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+.header {
+	background-color: #f7f7f9;
+	border-bottom: 1px solid #ddd;
+	padding: 2%;
+}
+.section {
+	margin: 2%;
+}
+.input-section {
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 2%;
+}
+.customer-section {
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 2%;
+}
+.customer-details {
+	display: inline-block;
+	padding-right: 1%;
+}
+.table-zebra {
+	border: 1px solid #ddd;
+}
+.table-zebra > tbody > tr:nth-of-type(odd) {
+	background-color: #f7f7f9;
+}
+.table-zebra > tbody > tr:nth-of-type(even) {
+	background-color: #fff;
+}
+.button-bar {
+	margin-top: 1%;
+	padding: 1%;
+	background-color: #F4F4F4;
+}
+.hints {
+	color: #ff0000;
+	margin-top: 2%;
+}
+.hints ul {
+	line-height: 2;	
+}
