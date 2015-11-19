@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Retail Bill Summary - Test Case 1</title>
+		<script src="retail.class.js" type="text/javascript"></script>		
+		<link rel="stylesheet" type="text/css" href="style.css" />
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="header">
+				<h1>Retail Bill Summary</h1>
+			</div>
+			<div class="section">
+				<div class="input-section">
+					<label for="custID">Cust ID:</label>
+					<input type="text" id="custID" name="custID" readonly />
+				</div>
+				<div class="customer-section">
+					<h2>Customer Details</h2>
+					<div class="customer-details">
+						<label for="custName">Customer Name : </label>
+						<input type="text" id="custName" readonly />
+					</div>
+					<div class="customer-details">
+						<label for="userType">User Type : </label>
+						<input type="text" id="userType" readonly />
+					</div>
+					<div class="customer-details">
+						<label for="discount">Discount Applicable : </label>
+						<input type="text" id="discount" readonly />
+					</div>
+				</div>
+				<div class="product-section">
+					<h2>Product Details</h2>
+					<table class="table-zebra" id="bill-summary" width="100%">
+						<thead>
+							<tr>
+								<th>Product ID</th>
+								<th>Product Name</th>
+								<th>Product Type</th>
+								<th class="align-right">Price ($)</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>a000101</td>
+								<td>XYZ</td>
+								<td>
+									<select rel="type" name="">
+										<option value="grocery">Grocery</option>
+										<option selected="selected" value="food">Food Product</option>
+									</select>
+								</td>
+								<td class="align-right"><input class="price" type="text" value="350.00" /></td>
+							</tr>
+							<tr>
+								<td>a000102</td>
+								<td>ABC</td>
+								<td>
+									<select rel="type" name="">
+										<option value="grocery">Grocery</option>
+										<option selected="selected" value="food">Food Product</option>
+									</select>
+								</td>
+								<td class="align-right"><input class="price" type="text" value="145.00" /></td>
+							</tr>
+							<tr>
+								<td>a000103</td>
+								<td>MNO</td>
+								<td>
+									<select rel="type" name="">
+										<option selected="selected" value="grocery">Grocery</option>
+										<option value="food">Food Product</option>
+									</select>
+								</td>
+								<td class="align-right"><input class="price" type="text" value="560.50" /></td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="3">Gross Amount : </td>
+								<td>$<span id="grossAmt">0.00</span></td>
+							</tr>
+							<tr>
+								<td colspan="3">Discount (Except Groceries) : </td>
+								<td>$<span id="discountAmt">0.00</span></td>
+							</tr>
+							<tr>
+								<td colspan="3">Net Amount : </td>
+								<td>$<span id="netAmt">0.00</span></td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+				<div class="button-bar align-right">
+					<button type="button" id="submit" onclick="submitData()">Submit</button>
+				</div>
+			</div>
+		</div>
+		
+		<div class="hints">
+			<ul>
+				<li>As a part of UI, Customer Details are loaded as a separate object and it has been included in the bottom of the HTML. (This data normally loaded from the backend, once we enter the cust ID.)</li>
+				<li>Considering this user is an Employee of the store and he/she will be getting 30% discount.</li>
+				<li>Product Information are hard-coded in the table, as these information will be entered manually or accessing line code / QR code of the product.</li>
+				<li>Changing the Product Type and Price will take the calculation based on the provided information. (This has been implemented only for testing.)</li>
+				<li>Clicking on Submit button after entering the data will show the Net Amount.</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var customerInfo = {
+				"custID": "E23653",
+				"custName": "Noor Mohamed",
+				"userType": "Employee",
+				"discount": 30
+			}
+			var $list = JSON.parse(JSON.stringify(customerInfo));
+			
+			function loadCustomerData ($data)
+			{	
+				var list = Object.keys($data);
+				for (i = 0; i < list.length; i++) { 
+					var $key = list[i];
+					document.getElementById($key).value = $data[$key];
+				}
+			}
+			
+			loadCustomerData($list);			
+		</script>
+	</body>
+</html>
